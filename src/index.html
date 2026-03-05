@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=utf-8/>
+<meta charset="utf-8"/>
 <title>Lab 1. Introduction to HTML5 and HLS</title>
-  
+
   <!--
   Embed needed js libraries for video player. Note, libraries needs to be hosted on your server, under /js folder.
-   -->
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
+
   <!--
   Location for CSS if needed. Note, cascade style sheets needs to be hosted on your server, under /css folder.
   -->
-   
-
-
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <h1>My first HLS player</h1>
-  
+
   <!--
   location for your player window
   -->
-  
-	<button type="button">Play</button>
-	<button type="button">Pause</button>
-	<button type="button">Stop</button>
-	<button type="button">Jump to 5 sec forward</button>
-	<button type="button">Jump to 5 sec backwards</button>	
-	
-	<p>Playlist</p>
-	
-	<input type="text" name="url1" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8"><button type="button">Load</button><br>
-	<input type="text" name="url2" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8"><button type="button">Load</button><br>
-	<button type="button">Shuffle</button>
+  <video id="videoPlayer" controls playsinline></video>
+
+  <div class="controls">
+    <button id="playBtn" type="button">Play</button>
+    <button id="pauseBtn" type="button">Pause</button>
+    <button id="stopBtn" type="button">Stop</button>
+    <button id="forwardBtn" type="button">Jump to 5 sec forward</button>
+    <button id="backwardBtn" type="button">Jump to 5 sec backwards</button>
+    <button id="shuffleBtn" type="button">Shuffle</button>
+  </div>
+
+  <p>Playlist</p>
+
+  <div class="playlist-row">
+    <input id="url1" type="text" name="url1" size="100" value="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8">
+    <button class="load-btn" data-input="url1" type="button">Load</button>
+  </div>
+
+  <div class="playlist-row">
+    <input id="url2" type="text" name="url2" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8">
+    <button class="load-btn" data-input="url2" type="button">Load</button>
+  </div>
+
+  <p id="status">Status: ready</p>
+
+  <script src="./js/control.js"></script>
 </body>
 </html>
